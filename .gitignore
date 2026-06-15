@@ -1,1 +1,18 @@
+# Deploy / Vercel
 .vercel
+
+# Editores / IDEs
+.idea/
+.vscode/
+
+# Ferramentas locais (Claude Code, Graphify)
+.claude/
+graphify-out/
+
+# Arquivos pessoais / artefatos
+*.pdf
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+*.log
