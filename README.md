@@ -1,6 +1,6 @@
 # 🚀 Portfólio Profissional — Matheus Trajano
 
-> Portfólio profissional de **Matheus Trajano Ferreira Alves**, Desenvolvedor Full Stack e Analista B2B. Single-file HTML5/CSS3/JavaScript, sem build tools, deploy na Vercel.
+> Portfólio profissional de **Matheus Trajano Ferreira Alves**, Desenvolvedor Full Stack e Analista de Suporte Técnico. Single-file HTML5/CSS3/JavaScript, sem build tools, deploy na Vercel.
 
 🔗 **[Acesse o Portfólio Online](https://matheus-dev-beryl.vercel.app/)**
 
@@ -8,7 +8,7 @@
 
 ## 👨‍💻 Sobre Mim
 
-Desenvolvedor Full Stack focado em **sistemas SaaS, agentes de IA e automação ETL**. Atualmente Analista B2B na **Probel/Mercosul**, onde implementei 8+ rotinas de automação que reduziram 40% do retrabalho operacional e economizam ~15h/semana do time.
+Desenvolvedor Full Stack focado em **sistemas SaaS, agentes de IA e automação ETL**. Atualmente **Analista de Suporte Técnico na A²O Sistemas Gerenciais** (Aparecida de Goiânia/GO), atuando no atendimento, diagnóstico e resolução de chamados de sistemas gerenciais. Anteriormente Analista B2B na **Probel/Mercosul**, onde implementei 8+ rotinas de automação que reduziram 40% do retrabalho operacional e economizavam ~15h/semana do time.
 
 - 📍 Goiânia/GO — 24 anos
 - 🎓 Graduando em **Análise e Desenvolvimento de Sistemas** — UNIGOIÁS (2024–2027)
@@ -35,7 +35,7 @@ Desenvolvedor Full Stack focado em **sistemas SaaS, agentes de IA e automação 
 `Power BI` `DAX` `Power Query (M)` `Pandas` `Streamlit`
 
 ### DevOps & Cloud
-`Vercel` `Git/GitHub` `Docker` `Google Drive API (OAuth)` `Groq API`
+`Vercel` `Git/GitHub` `Docker` `Linux` `Fly.io` `Google Drive API (OAuth)` `Groq API`
 
 ### Automação
 `PowerShell` `VBScript` `Excel COM Interop` `Windows Task Scheduler` `Mutex global`
@@ -43,18 +43,24 @@ Desenvolvedor Full Stack focado em **sistemas SaaS, agentes de IA e automação 
 ### Proficiência (autoavaliação)
 | Tecnologia | Nível |
 |-----------|------|
-| JavaScript | 90% |
-| HTML5 / CSS3 | 88% |
+| HTML / CSS | 88% |
 | SQL Server | 88% |
+| JavaScript / TypeScript | 85% |
 | Power BI | 85% |
-| Next.js | 78% |
+| Node.js / Express | 82% |
+| Next.js / React | 78% |
 | Python | 72% |
 
 ---
 
 ## 💼 Experiência Profissional
 
-### Analista B2B — Probel / Mercosul *(Jul 2024 — Atual)*
+### Analista de Suporte Técnico — A²O Sistemas Gerenciais *(Jun 2026 — Atual)*
+- Atendimento e resolução de chamados técnicos dos sistemas gerenciais
+- Diagnóstico e troubleshooting de problemas em sistemas, com análise de causa-raiz
+- Suporte aos usuários e documentação de soluções recorrentes
+
+### Analista B2B — Probel / Mercosul *(Jul 2024 — Jun 2026)*
 - 8+ rotinas de automação em produção (PowerShell + Excel COM + Google Drive API)
 - 40% de redução no retrabalho operacional · ~15h/semana economizadas
 - Integração com ERP Protheus (TOTVS) via SQL Server
@@ -72,14 +78,15 @@ Desenvolvedor Full Stack focado em **sistemas SaaS, agentes de IA e automação 
 
 | Projeto | Stack | Tipo |
 |---------|-------|------|
-| **Norma — SaaS Jurídico** | Next.js 16, Prisma, PostgreSQL, NextAuth v5, Tailwind v4, Framer Motion | Multi-tenant com RBAC (3 níveis) · 11 módulos · 🔒 repo privado |
+| **Norma — Sistema de Gestão Jurídica** | Next.js 16, Prisma, PostgreSQL (Neon), NextAuth v5, Tailwind v4, Framer Motion | SaaS multi-tenant com RBAC (3 níveis) · 11 módulos · 🔒 repo privado |
 | **Jarvis — Agente de Observabilidade IA** | Node.js, Express, Groq LLaMA, SQLite + PostgreSQL | Ingere logs de automações e responde em linguagem natural · 🔒 repo privado |
-| **Automação Operacional ETL** | PowerShell, VBScript, Excel COM, Google Drive API, Protheus | Corporativo — 8+ rotinas em produção |
+| **WR Engenharia — Gestão de Obras** | React 18, TypeScript, Node.js, Express, SQLite, Tailwind, JWT, Vite, Recharts, Fly.io | Full Stack — sistema sob medida (orçamentos, obras, Gantt, financeiro) · 🔒 repo privado |
+| **Syntra — CRM de Leads** | Spring Boot 3.3, Java 21, JPA, Flyway, PostgreSQL, Thymeleaf, Fly.io, Docker | Full Stack — CRM B2B |
+| **Sistema de Gestão Financeira** | Java 17, Spring Boot, PostgreSQL, Spring Data JPA, iText PDF | Full Stack — Java & Spring |
+| **Automação de Fluxos Operacionais** | PowerShell, VBScript, Excel COM, Google Drive API, Protheus | Corporativo — 8+ rotinas em produção |
 | **Dashboard Estratégico Power BI** | Power BI, DAX, Power Query, SQL Server | Corporativo — KPIs gerenciais |
 | **Análise Top 100 Amazon Books** | Python, Pandas, Streamlit | Análise exploratória + dashboard |
 | **E-commerce Pró Colchões** | HTML, CSS, JS | Landing/loja institucional |
-| **WR Engenharia** | HTML, CSS, JS | Site institucional |
-| **Syntra** | HTML, CSS, JS | Projeto frontend |
 | **Fundamentos de Backend em Java** | Java, POO | Estudo da graduação ADS |
 
 ---
@@ -116,18 +123,18 @@ Desenvolvedor Full Stack focado em **sistemas SaaS, agentes de IA e automação 
 |-------|-----------|
 | **Hero** | Apresentação com avatar, chips flutuantes, stats animados e CTAs |
 | **Sobre** | Card de info pessoal + bloco de código decorativo |
-| **Skills** | 6 categorias + barras de proficiência animadas |
-| **Experiência** | Timeline vertical com 3 posições |
-| **Projetos** | Grid de 6+ cards com hover overlay e tech stack |
+| **Skills** | 7 categorias (incl. "Em Aprendizado") + barras de proficiência animadas |
+| **Experiência** | Timeline vertical com 4 posições |
+| **Projetos** | Grid de 10 cards com hover overlay e tech stack |
 | **Certificações** | Cursos validados + formação acadêmica |
-| **Serviços** | 6 cards de serviços oferecidos |
+| **Serviços** | 7 cards de serviços oferecidos |
 | **Contato** | Formulário (Formspree) + redes sociais |
 
 ### ⚡ Interatividade
 - Navbar com scroll detection e link ativo
 - `IntersectionObserver` para animações fade-up
 - Barras de proficiência animadas ao entrar na viewport
-- Contadores animados no Hero (métricas reais: 11 módulos · 3 sistemas · 8+ rotinas · 7+ projetos)
+- Contadores animados no Hero (métricas reais: 11 módulos no SaaS · 5 sistemas em produção · 8+ rotinas automatizadas · 7+ certificações)
 - Formulário com envio assíncrono (Formspree) e feedback visual
 - SEO: Open Graph, Twitter Card, Schema.org Person
 - Vercel Analytics + Speed Insights
