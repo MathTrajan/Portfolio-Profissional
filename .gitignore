@@ -5,7 +5,7 @@
 .idea/
 .vscode/
 
-# Ferramentas locais (Claude Code, Graphify)
+# Ferramentas locais (Graphify)
 .claude/
 graphify-out/
 
