@@ -87,8 +87,8 @@ Desenvolvedor Full Stack focado em **sistemas SaaS, agentes de IA e automação 
 
 | Projeto | Stack | Tipo |
 |---------|-------|------|
-| **Norma — Sistema de Gestão Jurídica** | Next.js 16, Prisma, PostgreSQL (Neon), NextAuth v5, Tailwind v4, Framer Motion | SaaS multi-tenant com RBAC (3 níveis) · 11 módulos · [Repositório](https://github.com/MathTrajan/Sistema-Gestao-Juridica) |
-| **Jarvis — Agente de Observabilidade IA** | Node.js, Express, Groq LLaMA, SQLite + PostgreSQL | Ingere logs de automações e responde em linguagem natural · [Repositório](https://github.com/MathTrajan/Jarvis-Chat-Assistente-Virtual-Inteligente) · [Demo](https://jarvis-observability.vercel.app) |
+| **Norma — Sistema de Gestão Jurídica** | Next.js 16, Prisma, PostgreSQL (Neon), NextAuth v5, Tailwind v4, Framer Motion | SaaS multi-tenant com RBAC (3 níveis) · 11 módulos · [Repositório](https://github.com/MathTrajan/SaaS-Juridico-Norma) |
+| **Jarvis — Agente de Observabilidade IA** | Node.js, Express, Groq LLaMA, SQLite + PostgreSQL | Ingere logs de automações e responde em linguagem natural · [Repositório](https://github.com/MathTrajan/LLM-Local-Jarvis) · [Demo](https://jarvis-observability.vercel.app) |
 | **WR Engenharia — Gestão de Obras** | React 18, TypeScript, Node.js, Express, SQLite, Tailwind, JWT, Vite, Recharts, Fly.io | Full Stack — sistema sob medida (orçamentos, obras, Gantt, financeiro) · [Demo](https://wrengenharia.work) · 🔒 código privado |
 | **Syntra — CRM de Leads** | Spring Boot 3.3, Java 21, JPA, Flyway, PostgreSQL, Thymeleaf, Fly.io, Docker | Full Stack — CRM B2B · [Repositório](https://github.com/MathTrajan/CRM-Syntra) |
 | **Sistema de Gestão Financeira** | Java 17, Spring Boot, PostgreSQL, Spring Data JPA, iText PDF | Full Stack — Java & Spring |
