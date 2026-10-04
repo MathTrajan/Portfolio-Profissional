@@ -148,7 +148,7 @@ Desenvolvedor Full Stack focado em **sistemas SaaS, agentes de IA e automação 
 - Contadores animados no Hero (métricas reais: 11 módulos no SaaS · 5 sistemas em produção · 8+ rotinas automatizadas · 7+ certificações)
 - Formulário com envio assíncrono (Formspree) e feedback visual
 - SEO: Open Graph, Twitter Card, Schema.org Person
-- Vercel Analytics + Speed Insights
+- Vercel Speed Insights
 
 ---
 
