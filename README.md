@@ -157,10 +157,19 @@ Desenvolvedor Full Stack focado em **sistemas SaaS, agentes de IA e automação 
 ```text
 index.html        ← Single-file (HTML + CSS + JS embutidos)
 Foto.png          ← Imagem de perfil (PNG, usada também no og:image)
-*.webp            ← Imagens de capa dos projetos
+*.svg             ← Capas dos projetos, geradas por tools/gerar-capas.py
 vercel.json       ← Headers de segurança e cache
+tools/            ← Gerador das capas + logos do catálogo Simple Icons
 README.md         ← Esta documentação
 .gitignore        ← Regras Git
+```
+
+As capas dos cards são SVG gerado, não arte solta. Para mudar o nome, o
+subtítulo ou a stack de um projeto, edite a lista `PROJETOS` em
+`tools/gerar-capas.py` e rode:
+
+```bash
+python3 tools/gerar-capas.py
 ```
 
 ## 🚀 Rodar localmente
