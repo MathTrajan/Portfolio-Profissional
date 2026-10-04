@@ -1,0 +1,15 @@
+# A imagem leva so o que o Caddy serve: index.html, Foto.png e as capas .svg.
+# Tudo abaixo e material de desenvolvimento e nao deve entrar no container.
+.git
+.github
+.idea
+.vscode
+.claude
+.vercel
+graphify-out
+tools
+*.md
+Dockerfile
+.dockerignore
+fly.toml
+.gitignore

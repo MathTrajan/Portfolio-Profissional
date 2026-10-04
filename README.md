@@ -2,16 +2,16 @@
 
 # 🌐 Portfólio Profissional — Matheus Trajano
 
-Portfólio pessoal single-file (HTML5/CSS3/JavaScript puro, sem build tools), com dark theme, glassmorphism e animações. Hospedado na Vercel.
+Portfólio pessoal single-file (HTML5/CSS3/JavaScript puro, sem build tools), com dark theme, glassmorphism e animações. Hospedado no Fly.io.
 
 ![Status](https://img.shields.io/badge/status-em_produção-2EA043?style=flat-square)
 
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
-![Vercel](https://img.shields.io/badge/Deploy-Vercel-000000?style=flat-square&logo=vercel&logoColor=white)
+![Fly.io](https://img.shields.io/badge/Deploy-Fly.io-8B5CF6?style=flat-square&logo=flydotio&logoColor=white)
 
-[**🔗 Acesse o portfólio online →**](https://matheus-dev-beryl.vercel.app/)
+[**🔗 Acesse o portfólio online →**](https://matheus-dev.fly.dev/)
 
 </div>
 
@@ -148,7 +148,6 @@ Desenvolvedor Full Stack focado em **sistemas SaaS, agentes de IA e automação 
 - Contadores animados no Hero (métricas reais: 11 módulos no SaaS · 5 sistemas em produção · 8+ rotinas automatizadas · 7+ certificações)
 - Formulário com envio assíncrono (Formspree) e feedback visual
 - SEO: Open Graph, Twitter Card, Schema.org Person
-- Vercel Speed Insights
 
 ---
 
@@ -158,7 +157,9 @@ Desenvolvedor Full Stack focado em **sistemas SaaS, agentes de IA e automação 
 index.html        ← Single-file (HTML + CSS + JS embutidos)
 Foto.png          ← Imagem de perfil (PNG, usada também no og:image)
 *.svg             ← Capas dos projetos, geradas por tools/gerar-capas.py
-vercel.json       ← Headers de segurança e cache
+Dockerfile        ← Imagem Caddy com os estáticos dentro
+Caddyfile         ← Headers de segurança e cache
+fly.toml          ← App matheus-dev, região gru
 tools/            ← Gerador das capas + logos do catálogo Simple Icons
 README.md         ← Esta documentação
 .gitignore        ← Regras Git
@@ -181,11 +182,15 @@ Depois acesse `http://localhost:8080`.
 
 ## 🌐 Deploy
 
-Hospedagem na **Vercel**, publicada por CLI. Push para o GitHub **não** publica:
+Hospedagem no **Fly.io** (app `matheus-dev`, região `gru`), publicada por CLI.
+Push para o GitHub **não** publica:
 
 ```bash
-vercel --prod
+fly deploy
 ```
+
+A máquina dorme quando ninguém acessa e sobe sozinha na primeira visita
+(`auto_stop_machines`), o que custa 1 a 3 s de cold start em acesso esporádico.
 
 ---
 
@@ -193,7 +198,7 @@ vercel --prod
 
 - 📧 **matheustrajano.dev@gmail.com**
 - 🐙 GitHub: [@MathTrajan](https://github.com/MathTrajan)
-- 🔗 Portfólio: [matheus-dev-beryl.vercel.app](https://matheus-dev-beryl.vercel.app/)
+- 🔗 Portfólio: [matheus-dev.fly.dev](https://matheus-dev.fly.dev/)
 
 ---
 

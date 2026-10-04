@@ -1,0 +1,37 @@
+# Servidor do portfolio no Fly.io.
+#
+# O site e estatico e nao tem build: o Caddy so entrega os arquivos. Este
+# arquivo substitui o que o vercel.json fazia quando o projeto morava na
+# Vercel (headers de seguranca e politica de cache).
+
+:8080 {
+	root * /srv
+	encode zstd gzip
+	file_server
+
+	header {
+		X-Content-Type-Options nosniff
+		X-Frame-Options SAMEORIGIN
+		Referrer-Policy strict-origin-when-cross-origin
+		Permissions-Policy "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+		-Server
+	}
+
+	# As capas .svg sao REGENERADAS por tools/gerar-capas.py e o nome do
+	# arquivo nao tem hash. Cache immutable deixaria o visitante recorrente
+	# presa a uma capa antiga ate o cache expirar, entao o navegador sempre
+	# revalida -- um 304 custa quase nada para um arquivo de 14 KB.
+	@assets path *.svg *.png *.ico
+	header @assets Cache-Control "public, max-age=0, must-revalidate"
+
+	# Precisa casar "/" e "/index.html": o file_server resolve a raiz para o
+	# index, mas o matcher de path compara a URL pedida, nao o arquivo
+	# entregue -- so "/index.html" deixava a home sem Cache-Control.
+	@html path / /index.html
+	header @html Cache-Control "public, max-age=0, must-revalidate"
+
+	log {
+		output stdout
+		format console
+	}
+}

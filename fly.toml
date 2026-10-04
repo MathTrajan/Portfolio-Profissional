@@ -1,0 +1,27 @@
+# Portfolio no Fly.io. Migrado da Vercel em 2026-10-03.
+app = 'matheus-dev'
+primary_region = 'gru'
+
+[build]
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+
+  # O site e estatico e a maquina nao guarda estado: pode dormir quando
+  # ninguem acessa e subir sozinha na primeira visita. Isso evita cobranca
+  # de maquina ociosa, ao custo de ~1 a 3 s de cold start em visita
+  # esporadica -- que e justamente o padrao de acesso de um portfolio.
+  auto_stop_machines = 'stop'
+  auto_start_machines = true
+  min_machines_running = 0
+
+  [http_service.concurrency]
+    type = 'requests'
+    soft_limit = 200
+    hard_limit = 250
+
+[[vm]]
+  size = 'shared-cpu-1x'
+  memory = '256mb'
+  cpus = 1
