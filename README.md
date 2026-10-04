@@ -2,7 +2,7 @@
 
 # 🌐 Portfólio Profissional — Matheus Trajano
 
-Portfólio pessoal single-file (HTML5/CSS3/JavaScript puro, sem build tools), com dark theme, glassmorphism e animações — deploy contínuo na Vercel.
+Portfólio pessoal single-file (HTML5/CSS3/JavaScript puro, sem build tools), com dark theme, glassmorphism e animações. Hospedado na Vercel.
 
 ![Status](https://img.shields.io/badge/status-em_produção-2EA043?style=flat-square)
 
@@ -40,7 +40,7 @@ Desenvolvedor Full Stack focado em **sistemas SaaS, agentes de IA e automação 
 `Node.js` `Express` `NextAuth v5` `Prisma ORM` `REST APIs`
 
 ### Bancos de Dados
-`SQL Server (Protheus/TOTVS)` `PostgreSQL (Neon)` `SQLite` `Prisma`
+`SQL Server (Protheus/TOTVS)` `PostgreSQL` `SQLite` `Prisma`
 
 ### BI & Dados
 `Power BI` `DAX` `Power Query (M)` `Pandas` `Streamlit`
@@ -89,9 +89,9 @@ Desenvolvedor Full Stack focado em **sistemas SaaS, agentes de IA e automação 
 
 | Projeto | Stack | Tipo |
 |---------|-------|------|
-| **Norma — Sistema de Gestão Jurídica** | Next.js 16, Prisma, PostgreSQL (Neon), NextAuth v5, Tailwind v4, Framer Motion | SaaS multi-tenant com RBAC (3 níveis) · 11 módulos · [Repositório](https://github.com/MathTrajan/SaaS-Juridico-Norma) |
+| **Norma — Sistema de Gestão Jurídica** | Next.js 16, Prisma, PostgreSQL, NextAuth v5, Tailwind v4, Framer Motion | SaaS multi-tenant com RBAC (3 níveis) · 11 módulos · 🔒 código privado |
 | **Jarvis — Agente de Observabilidade IA** | Node.js, Express, Groq LLaMA, SQLite + PostgreSQL | Ingere logs de automações e responde em linguagem natural · [Repositório](https://github.com/MathTrajan/LLM-Local-Jarvis) · [Demo](https://jarvis-observability.vercel.app) |
-| **WR Engenharia — Gestão de Obras** | React 18, TypeScript, Node.js, Express, SQLite, Tailwind, JWT, Vite, Recharts, Fly.io | Full Stack — sistema sob medida (orçamentos, obras, Gantt, financeiro) · [Demo](https://wrengenharia.work) · 🔒 código privado |
+| **WR Engenharia — Gestão de Obras** | React 18, TypeScript, Node.js, Express, SQLite, Tailwind, JWT, Vite, Recharts | Full Stack — sistema sob medida (orçamentos, obras, Gantt, financeiro) · 🔒 código privado |
 | **Syntra — CRM de Leads** | Spring Boot 3.3, Java 21, JPA, Flyway, PostgreSQL, Thymeleaf, Fly.io, Docker | Full Stack — CRM B2B · [Repositório](https://github.com/MathTrajan/CRM-Syntra) |
 | **Sistema de Gestão Financeira** | Java 17, Spring Boot, PostgreSQL, Spring Data JPA, iText PDF | Full Stack — Java & Spring |
 | **Automação de Fluxos Operacionais** | PowerShell, VBScript, Excel COM, Google Drive API, Protheus | Corporativo — 8+ rotinas em produção |
@@ -156,22 +156,27 @@ Desenvolvedor Full Stack focado em **sistemas SaaS, agentes de IA e automação 
 
 ```text
 index.html        ← Single-file (HTML + CSS + JS embutidos)
-Foto.png          ← Imagem de perfil
-*.png             ← Imagens de capa dos projetos
+Foto.png          ← Imagem de perfil (PNG, usada também no og:image)
+*.webp            ← Imagens de capa dos projetos
+vercel.json       ← Headers de segurança e cache
 README.md         ← Esta documentação
 .gitignore        ← Regras Git
 ```
 
 ## 🚀 Rodar localmente
 
-```powershell
-python -m http.server 8080
+```bash
+python3 -m http.server 8080
 ```
 Depois acesse `http://localhost:8080`.
 
 ## 🌐 Deploy
 
-Deploy contínuo via **Vercel** — push para `main` publica automaticamente.
+Hospedagem na **Vercel**, publicada por CLI. Push para o GitHub **não** publica:
+
+```bash
+vercel --prod
+```
 
 ---
 
