@@ -1,11 +1,40 @@
-# Servidor do portfolio no Fly.io.
+# Config do servidor que entrega este site. O script de publicacao a instala em
+# /etc/caddy/Caddyfile, valida e recarrega -- editar no servidor a mao e perder
+# a edicao no proximo deploy.
 #
 # O site e estatico e nao tem build: o Caddy so entrega os arquivos. Este
-# arquivo substitui o que o vercel.json fazia quando o projeto morava na
-# Vercel (headers de seguranca e politica de cache).
+# arquivo guarda os headers de seguranca e a politica de cache, que antes
+# viviam no vercel.json e depois na imagem do container.
+{
+	# O TLS termina na borda da Cloudflare e o cloudflared entrega aqui em
+	# http no loopback. Sem isto o Caddy tentaria emitir certificado proprio
+	# para um hostname que ele nao controla.
+	auto_https off
 
-:8080 {
-	root * /srv
+	# Fecha a API de administracao, que por padrao escuta em 127.0.0.1:2019 e
+	# reconfigura o servidor inteiro sem autenticacao.
+	#
+	# ⚠️ Com isto `systemctl reload caddy` NAO funciona: o `caddy reload` envia
+	# a config nova justamente por essa API e falha com connection refused na
+	# 2019. Aplicar mudanca neste arquivo exige `systemctl restart caddy`, que
+	# e o que o script de publicacao faz. A falha do reload nao derruba o
+	# processo, so nao aplica nada -- entao o arquivo em disco pode divergir do
+	# que esta valendo em memoria.
+	admin off
+}
+
+:3700 {
+	# So o loopback: quem expoe para a internet e o Cloudflare Tunnel, e
+	# porta aberta em interface externa seria caminho paralelo sem TLS.
+	bind 127.0.0.1
+
+	# www -> apex, 308 para preservar o metodo. Fica aqui e nao numa Redirect
+	# Rule do painel da Cloudflare porque assim a regra e versionada junto do
+	# site, em vez de viver num estado de dashboard que ninguem le.
+	@www host www.trajano.tech
+	redir @www https://trajano.tech{uri} 308
+
+	root * /opt/portfolio
 	encode zstd gzip
 	file_server
 
@@ -19,7 +48,7 @@
 
 	# As capas .svg sao REGENERADAS por tools/gerar-capas.py e o nome do
 	# arquivo nao tem hash. Cache immutable deixaria o visitante recorrente
-	# presa a uma capa antiga ate o cache expirar, entao o navegador sempre
+	# preso a uma capa antiga ate o cache expirar, entao o navegador sempre
 	# revalida -- um 304 custa quase nada para um arquivo de 14 KB.
 	@assets path *.svg *.png *.ico
 	header @assets Cache-Control "public, max-age=0, must-revalidate"

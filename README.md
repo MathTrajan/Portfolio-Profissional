@@ -9,9 +9,9 @@ Portfólio pessoal single-file (HTML5/CSS3/JavaScript puro, sem build tools), co
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
-![Fly.io](https://img.shields.io/badge/Deploy-Fly.io-8B5CF6?style=flat-square&logo=flydotio&logoColor=white)
+![Caddy](https://img.shields.io/badge/Deploy-Self--hosted%20%2B%20Caddy-00C7B7?style=flat-square&logo=caddy&logoColor=white)
 
-[**🔗 Acesse o portfólio online →**](https://matheus-dev.fly.dev/)
+[**🔗 Acesse o portfólio online →**](https://trajano.tech/)
 
 </div>
 
@@ -157,9 +157,7 @@ Desenvolvedor Full Stack focado em **sistemas SaaS, agentes de IA e automação 
 index.html        ← Single-file (HTML + CSS + JS embutidos)
 Foto.png          ← Imagem de perfil (PNG, usada também no og:image)
 *.svg             ← Capas dos projetos, geradas por tools/gerar-capas.py
-Dockerfile        ← Imagem Caddy com os estáticos dentro
-Caddyfile         ← Headers de segurança e cache
-fly.toml          ← App matheus-dev, região gru
+Caddyfile         ← Config do servidor: headers de segurança e cache
 tools/            ← Gerador das capas + logos do catálogo Simple Icons
 README.md         ← Esta documentação
 .gitignore        ← Regras Git
@@ -182,15 +180,13 @@ Depois acesse `http://localhost:8080`.
 
 ## 🌐 Deploy
 
-Hospedagem no **Fly.io** (app `matheus-dev`, região `gru`), publicada por CLI.
-Push para o GitHub **não** publica:
+**Auto-hospedado**: servidor Debian próprio, estáticos servidos por **Caddy** e
+expostos por **Cloudflare Tunnel** (TLS na borda, sem porta aberta no roteador).
+Publicação é por script, e push para o GitHub **não** publica.
 
-```bash
-fly deploy
-```
-
-A máquina dorme quando ninguém acessa e sobe sozinha na primeira visita
-(`auto_stop_machines`), o que custa 1 a 3 s de cold start em acesso esporádico.
+Sem cold start: o servidor fica acordado. Os estáticos ainda passam pelo cache
+da borda da Cloudflare, então o link do portfólio não depende do uplink
+doméstico para carregar rápido.
 
 ---
 
@@ -198,7 +194,7 @@ A máquina dorme quando ninguém acessa e sobe sozinha na primeira visita
 
 - 📧 **matheustrajano.dev@gmail.com**
 - 🐙 GitHub: [@MathTrajan](https://github.com/MathTrajan)
-- 🔗 Portfólio: [matheus-dev.fly.dev](https://matheus-dev.fly.dev/)
+- 🔗 Portfólio: [trajano.tech](https://trajano.tech/)
 
 ---
 
