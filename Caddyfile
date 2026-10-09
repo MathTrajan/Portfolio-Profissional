@@ -50,7 +50,11 @@
 	# arquivo nao tem hash. Cache immutable deixaria o visitante recorrente
 	# preso a uma capa antiga ate o cache expirar, entao o navegador sempre
 	# revalida -- um 304 custa quase nada para um arquivo de 14 KB.
-	@assets path *.svg *.png *.ico
+	#
+	# ⚠️ Formato novo servido pelo site entra NESTA lista. A foto virou .webp
+	# e .jpg em 09/10/2026 e, sem a extensao aqui, sairia sem Cache-Control
+	# nenhum -- o que nao quebra nada visivelmente e so aparece no DevTools.
+	@assets path *.svg *.png *.ico *.webp *.jpg
 	header @assets Cache-Control "public, max-age=0, must-revalidate"
 
 	# Precisa casar "/" e "/index.html": o file_server resolve a raiz para o

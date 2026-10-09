@@ -85,6 +85,12 @@ CORES_LOGO = {
     "javascript": "#F7DF1E", "powershell": "#5391FE", "googledrive": "#4285F4",
     "python": "#5BA2D8", "pandas": "#C9B6F0", "streamlit": "#FF4B4B",
     "apachemaven": "#E0566E", "json": "#C3CCDB",
+    # Acrescentados em 09/10/2026. Angular (#DD0031), Debian (#A81D33) e Caddy
+    # (#1F88C0) foram CLAREADOS: os dois primeiros sao vinho escuro e o
+    # terceiro um azul medio, todos sumiam contra o #0f1629 do fundo.
+    "whatsapp": "#25D366", "nestjs": "#E0234E", "angular": "#E8445F",
+    "debian": "#E05A72", "cloudflare": "#F38020", "caddy": "#4FA8DC",
+    "vite": "#8A90FF",
 }
 
 # (arquivo, acento, [(rotulo, slug_do_logo)])
@@ -94,13 +100,18 @@ CORES_LOGO = {
 # A primeira tecnologia da lista vira a marca d'agua. slug None = sem logo no
 # catalogo Simple Icons.
 PROJETOS = [
+    # O WR saiu do SQLite no commit bae4b3e (migracao para Postgres na Neon);
+    # a capa estampava SQLite ate 09/10/2026.
     ("WR Engenharia.svg", PALETA_AZUL, [
         ("React 18", "react"), ("TypeScript", "typescript"),
-        ("Node.js", "nodedotjs"), ("Express", "express"), ("SQLite", "sqlite"),
+        ("Node.js", "nodedotjs"), ("Express", "express"),
+        ("PostgreSQL", "postgresql"),
     ]),
+    # O Jarvis deixou de ser agente de observabilidade em 04/08/2026: hoje e
+    # chat com modelo LOCAL, sem Groq e sem banco nenhum.
     ("Jarvis Chat AI.svg", "#10b981", [
         ("Node.js", "nodedotjs"), ("Express", "express"),
-        ("Groq API", None), ("PostgreSQL", "postgresql"), ("SQLite", "sqlite"),
+        ("llama.cpp", None), ("RAG", None), ("JavaScript", "javascript"),
     ]),
     ("Syntra.svg", "#f59e0b", [
         ("Spring Boot 3.3", "springboot"), ("Java 21", "openjdk"),
@@ -130,6 +141,36 @@ PROJETOS = [
     ("Arquitetura de Backend em Java.svg", "#f87171", [
         ("Java", "openjdk"), ("POO", None),
         ("JSON", "json"), ("Maven", "apachemaven"),
+    ]),
+    # Acrescentados em 09/10/2026, quando o portfolio passou a refletir a pasta
+    # ~/Dev inteira. Lembrete: MAX_TECNOLOGIAS corta em 5, entao o que vier
+    # depois da quinta pill nao e desenhado -- a ordem aqui e a prioridade.
+    ("VirtusChat.svg", "#22d3ee", [
+        ("Node.js", "nodedotjs"), ("PostgreSQL", "postgresql"),
+        ("SSE", None), ("WhatsApp Cloud API", "whatsapp"),
+        ("JavaScript", "javascript"),
+    ]),
+    ("Capital.svg", "#e0234e", [
+        ("NestJS 10", "nestjs"), ("Angular 17", "angular"),
+        ("Prisma 5", "prisma"), ("PostgreSQL", "postgresql"),
+        ("TypeScript", "typescript"),
+    ]),
+    ("Sentinel.svg", "#94a3b8", [
+        ("Debian 13", "debian"), ("systemd", None),
+        ("PostgreSQL", "postgresql"), ("Cloudflare Tunnel", "cloudflare"),
+        ("Caddy", "caddy"),
+    ]),
+    ("Prototipo Gestao de Obras.svg", "#fb923c", [
+        ("React", "react"), ("Vite", "vite"), ("Express", "express"),
+        ("SQLite", "sqlite"), ("Docker", "docker"),
+    ]),
+    ("GestFin.svg", "#34d399", [
+        ("Angular 17", "angular"), ("Node.js", "nodedotjs"),
+        ("Express", "express"), ("PostgreSQL", "postgresql"),
+        ("PL/pgSQL", None),
+    ]),
+    ("Reverse Shell em Java.svg", "#f43f5e", [
+        ("Java", "openjdk"), ("Socket TCP", None), ("Segurança", None),
     ]),
 ]
 

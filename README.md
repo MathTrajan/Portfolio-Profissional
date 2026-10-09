@@ -2,7 +2,7 @@
 
 # 🌐 Portfólio Profissional — Matheus Trajano
 
-Portfólio pessoal single-file (HTML5/CSS3/JavaScript puro, sem build tools), com dark theme, glassmorphism e animações. Hospedado no Fly.io.
+Portfólio pessoal single-file (HTML5/CSS3/JavaScript puro, sem build tools), com dark theme, glassmorphism e animações. Auto-hospedado em servidor próprio, atrás de Cloudflare Tunnel.
 
 ![Status](https://img.shields.io/badge/status-em_produção-2EA043?style=flat-square)
 
@@ -40,13 +40,13 @@ Desenvolvedor Full Stack focado em **sistemas SaaS, agentes de IA e automação 
 `Node.js` `Express` `NextAuth v5` `Prisma ORM` `REST APIs`
 
 ### Bancos de Dados
-`SQL Server (Protheus/TOTVS)` `PostgreSQL` `SQLite` `Prisma`
+`PostgreSQL` `SQL Server (Protheus/TOTVS)` `Prisma` `SQLite`
 
 ### BI & Dados
 `Power BI` `DAX` `Power Query (M)` `Pandas` `Streamlit`
 
 ### DevOps & Cloud
-`Vercel` `Git/GitHub` `Docker` `Linux` `Fly.io` `Google Drive API (OAuth)` `Groq API`
+`Debian` `systemd` `Cloudflare Tunnel` `Caddy` `Docker` `Fly.io` `Vercel` `Git/GitHub` `restic` `Google Drive API (OAuth)` `Groq API` `llama.cpp`
 
 ### Automação
 `PowerShell` `VBScript` `Excel COM Interop` `Windows Task Scheduler` `Mutex global`
@@ -90,10 +90,16 @@ Desenvolvedor Full Stack focado em **sistemas SaaS, agentes de IA e automação 
 | Projeto | Stack | Tipo |
 |---------|-------|------|
 | **Norma — Sistema de Gestão Jurídica** | Next.js 16, Prisma, PostgreSQL, NextAuth v5, Tailwind v4, Framer Motion | SaaS multi-tenant com RBAC (3 níveis) · 11 módulos · 🔒 código privado |
-| **Jarvis — Agente de Observabilidade IA** | Node.js, Express, Groq LLaMA, SQLite + PostgreSQL | Ingere logs de automações e responde em linguagem natural · [Repositório](https://github.com/MathTrajan/LLM-Local-Jarvis) · [Demo](https://jarvis-observability.vercel.app) |
-| **WR Engenharia — Gestão de Obras** | React 18, TypeScript, Node.js, Express, SQLite, Tailwind, JWT, Vite, Recharts | Full Stack — sistema sob medida (orçamentos, obras, Gantt, financeiro) · 🔒 código privado |
+| **Jarvis — Chat com LLM Offline** | Node.js, Express, llama.cpp, RAG | Modelo servido na própria máquina, com RAG local e sandbox de arquivos · [Repositório](https://github.com/MathTrajan/LLM-Local-Jarvis) |
+| **WR Engenharia — Gestão de Obras** | React 18, TypeScript, Node.js, Express, PostgreSQL, Tailwind, JWT, Vite, Recharts | Full Stack — sistema sob medida (orçamentos, obras, Gantt, financeiro) · 🔒 código privado |
 | **Syntra — CRM de Leads** | Spring Boot 3.3, Java 21, JPA, Flyway, PostgreSQL, Thymeleaf, Fly.io, Docker | Full Stack — CRM B2B · [Repositório](https://github.com/MathTrajan/CRM-Syntra) |
 | **Sistema de Gestão Financeira** | Java 17, Spring Boot, PostgreSQL, Spring Data JPA, iText PDF | Full Stack — Java & Spring |
+| **VirtusChat — Chat de Atendimento** | Node.js, PostgreSQL, SSE, WhatsApp Cloud API | Widget + painel multitenant, dependência única · 🔒 código privado |
+| **Capital — Gestão Financeira Familiar** | NestJS 10, Angular 17, Prisma 5, PostgreSQL, WebAuthn, Web Push, PWA | Full Stack — em uso diário · 🔒 código privado |
+| **Sentinel — Servidor de Produção** | Debian 13, systemd, PostgreSQL, Cloudflare Tunnel, Caddy, restic | Infraestrutura — 4 aplicações auto-hospedadas |
+| **Protótipo — Gestão de Obras** | React, Vite, Express, SQLite, Docker | Validação que precedeu o sistema da WR · 🔒 código privado |
+| **GestFin — Finanças Domésticas** | Angular 17, Node.js, Express, PostgreSQL, PL/pgSQL | Acadêmico · [Repositório](https://github.com/MathTrajan/GestFin-Projeto-ADS) |
+| **Reverse Shell em Java (TCP)** | Java, Socket TCP | Segurança, ambiente controlado · [Repositório](https://github.com/MathTrajan/Estudo-Seguranca-Reverse-Shell) |
 | **Automação de Fluxos Operacionais** | PowerShell, VBScript, Excel COM, Google Drive API, Protheus | Corporativo — 8+ rotinas em produção |
 | **Dashboard Estratégico Power BI** | Power BI, DAX, Power Query, SQL Server | Corporativo — KPIs gerenciais |
 | **Análise Top 100 Amazon Books** | Python, Pandas, Streamlit | Análise exploratória + dashboard |
@@ -136,7 +142,7 @@ Desenvolvedor Full Stack focado em **sistemas SaaS, agentes de IA e automação 
 | **Sobre** | Card de info pessoal + bloco de código decorativo |
 | **Skills** | 7 categorias (incl. "Em Aprendizado") + barras de proficiência animadas |
 | **Experiência** | Timeline vertical com 4 posições |
-| **Projetos** | Grid de 10 cards com hover overlay e tech stack |
+| **Projetos** | Grid de 15 cards com hover overlay e tech stack |
 | **Certificações** | Cursos validados + formação acadêmica |
 | **Serviços** | 7 cards de serviços oferecidos |
 | **Contato** | Formulário (Formspree) + redes sociais |
@@ -155,7 +161,8 @@ Desenvolvedor Full Stack focado em **sistemas SaaS, agentes de IA e automação 
 
 ```text
 index.html        ← Single-file (HTML + CSS + JS embutidos)
-Foto.png          ← Imagem de perfil (PNG, usada também no og:image)
+Foto.webp         ← Imagem de perfil servida ao visitante (96 KB)
+Foto.jpg          ← Mesma foto para o og:image, em formato que todo robô lê
 *.svg             ← Capas dos projetos, geradas por tools/gerar-capas.py
 Caddyfile         ← Config do servidor: headers de segurança e cache
 tools/            ← Gerador das capas + logos do catálogo Simple Icons
