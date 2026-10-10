@@ -57,6 +57,15 @@ PILL_GAP = 16
 MARCA_ESCALA = 10.8
 MARCA_LADO = 24 * MARCA_ESCALA  # icones Simple Icons sao 24x24
 MARCA_FOLGA_DIR = 40
+MARCA_OPACIDADE = 0.10
+
+# A marca d'agua alterna entre os logos das tecnologias da capa.
+#
+# Isso funciona porque CSS e SMIL SAO executados em SVG carregado por <img>;
+# so JavaScript nao e. Entao a animacao mora dentro do proprio .svg e o
+# index.html nao precisa saber de nada -- nenhuma linha de JS no site.
+MARCA_SEGUNDOS_POR_LOGO = 2.6
+MARCA_CRUZAMENTO = 5  # % do ciclo em que um logo sai enquanto o proximo entra
 
 FUNDO = "#0f1629"
 SUBTITULO = "#8fa3c8"
@@ -234,6 +243,74 @@ def selecionar(techs):
     return distribuir(techs[:MAX_TECNOLOGIAS], LARGURA - MARGEM_X * 2)
 
 
+def marca_dagua(linhas, acento):
+    """
+    A marca d'agua, alternando entre os logos das tecnologias da capa.
+
+    Um logo so: desenha estatico, sem CSS nenhum. Animacao de um quadro e
+    peso e complexidade sem efeito.
+
+    Dois ou mais: empilha todos na mesma posicao e cicla a opacidade por
+    @keyframes, com um cruzamento para um sair enquanto o proximo entra. O
+    atraso de cada logo e uma fatia do ciclo, entao a sequencia segue a ordem
+    das pills, da esquerda para a direita.
+    """
+    slugs = []
+    for linha in linhas:
+        for _, slug in linha:
+            if slug and slug not in slugs:  # PostgreSQL pode repetir na capa
+                slugs.append(slug)
+    if not slugs:
+        return []
+
+    x = LARGURA - MARCA_LADO - MARCA_FOLGA_DIR
+    y = (ALTURA - MARCA_LADO) / 2
+    abre = (
+        f'<g transform="translate({x:.0f},{y:.0f}) scale({MARCA_ESCALA})" '
+        f'fill="{acento}"'
+    )
+
+    if len(slugs) == 1:
+        return [
+            f'{abre} fill-opacity="{MARCA_OPACIDADE}">'
+            f'<path d="{carregar_path(slugs[0])}"/></g>'
+        ]
+
+    total = len(slugs)
+    ciclo = total * MARCA_SEGUNDOS_POR_LOGO
+    fatia = 100 / total
+    saida = fatia + MARCA_CRUZAMENTO
+
+    # `prefers-reduced-motion` nao e enfeite aqui: a marca pulsa o tempo todo,
+    # atras de texto, em nove capas na mesma pagina. Quem pediu menos
+    # movimento ve o primeiro logo parado, que e exatamente o que a capa
+    # mostrava antes desta animacao existir.
+    estilo = (
+        "<style>"
+        f".m{{opacity:0;animation:mc {ciclo:.1f}s linear infinite}}"
+        "@keyframes mc{"
+        "0%{opacity:0}"
+        f"{MARCA_CRUZAMENTO}%{{opacity:{MARCA_OPACIDADE}}}"
+        f"{fatia:.2f}%{{opacity:{MARCA_OPACIDADE}}}"
+        f"{saida:.2f}%{{opacity:0}}"
+        "100%{opacity:0}}"
+        "@media(prefers-reduced-motion:reduce){"
+        ".m{animation:none}"
+        f".m0{{opacity:{MARCA_OPACIDADE}}}"
+        "}"
+        "</style>"
+    )
+
+    partes = [estilo]
+    for indice, slug in enumerate(slugs):
+        atraso = indice * ciclo / total
+        partes.append(
+            f'{abre} class="m m{indice}" style="animation-delay:{atraso:.2f}s">'
+            f'<path d="{carregar_path(slug)}"/></g>'
+        )
+    return partes
+
+
 def montar(acento, techs):
     uid = re.sub(r"\W+", "", Path(techs[0][0]).stem)
     partes = [
@@ -266,18 +343,15 @@ def montar(acento, techs):
         )
     partes.append(f'<rect width="{LARGURA}" height="7" fill="url(#b{uid})"/>')
 
+    linhas = selecionar(techs)
+
     # Marca d'agua no lugar onde ficava o titulo. A capa nao traz nome nem tipo
     # do projeto de proposito: o card ja imprime os dois em HTML logo abaixo.
-    principal = next((s for _, s in techs if s), None)
-    if principal:
-        partes.append(
-            f'<g transform="translate({LARGURA - MARCA_LADO - MARCA_FOLGA_DIR:.0f},'
-            f'{(ALTURA - MARCA_LADO) / 2:.0f}) scale({MARCA_ESCALA})" '
-            f'fill="{acento}" fill-opacity=".10">'
-            f'<path d="{carregar_path(principal)}"/></g>'
-        )
-
-    linhas = selecionar(techs)
+    #
+    # Os logos sao os das tecnologias que REALMENTE viraram pill nesta capa, e
+    # nao a lista bruta: a marca d'agua mostrando algo que o leitor nao ve
+    # escrito logo ao lado confunde em vez de reforcar.
+    partes.extend(marca_dagua(linhas, acento))
     espaco = PILL_ALTURA + 18
     topo = (ALTURA - (len(linhas) * espaco - 18)) // 2
     for indice, linha in enumerate(linhas):

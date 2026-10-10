@@ -884,6 +884,15 @@
       color: #fbbf24;
     }
 
+    /* Angular e NestJS, cujas marcas sao vermelhas. O texto e #f87171 e nao a
+       hex da marca (#DD0031 / #E0234E): o vinho original nao tem contraste
+       suficiente contra o fundo escuro do card. */
+    .skill-tag.red {
+      background: rgba(239,68,68,0.06);
+      border-color: rgba(239,68,68,0.2);
+      color: #f87171;
+    }
+
     /* Proficiency bars */
     .proficiency-grid {
       display: grid;
@@ -1908,7 +1917,7 @@
               <span class="hero-stat-label">Rotinas automatizadas</span>
             </div>
             <div class="hero-stat">
-              <span class="hero-stat-num">7+</span>
+              <span class="hero-stat-num">6</span>
               <span class="hero-stat-label">Certificações</span>
             </div>
           </div>
@@ -1986,7 +1995,7 @@
           <div class="code-block" style="margin-top:24px">
             <span class="kw">const</span> <span class="fn">matheus</span> = {<br/>
             &nbsp;&nbsp;role: <span class="str">"Desenvolvedor Full Stack"</span>,<br/>
-            &nbsp;&nbsp;age: <span class="num">24</span>,<br/>
+            &nbsp;&nbsp;age: <span class="num">25</span>,<br/>
             &nbsp;&nbsp;stack: [<span class="str">"Next.js"</span>, <span class="str">"Node"</span>, <span class="str">"TS"</span>, <span class="str">"SQL"</span>],<br/>
             &nbsp;&nbsp;status: <span class="str">"open to work"</span> <br/>
             }
@@ -1994,15 +2003,25 @@
         </div>
 
         <!-- About Text -->
-        <div class="fade-up fade-up-delay-1">
+        <!-- A classe about-text nao e decorativa: o CSS tem .about-text p com
+             margem, altura de linha e destaque do <strong>, e sem ela os
+             paragrafos saem colados num bloco unico. A regra existia desde
+             sempre e nunca tinha sido ligada ao container. -->
+        <div class="about-text fade-up fade-up-delay-1">
           <span class="section-badge"><i class="fas fa-user"></i> Sobre Mim</span>
           <h2 class="section-title">Transformo dados e<br/><span>código em resultados</span></h2>
           <div class="divider"></div>
 <p>
-  Desenvolvedor de 24 anos com foco em sistemas e automações. Graduando em <strong>Análise e Desenvolvimento de Sistemas</strong>, entrego projetos reais em produção, do backend ao deploy, com atenção a arquitetura limpa e performance.
+  Desenvolvedor de 25 anos com foco em sistemas e automações. Graduando em <strong>Análise e Desenvolvimento de Sistemas</strong>, entrego projetos reais em produção, do backend ao deploy, com atenção a arquitetura limpa e performance.
 </p>
 <p>
-  Construí um sistema SaaS jurídico multi-tenant com <strong>Next.js 16, Prisma e PostgreSQL</strong>, incluindo RBAC em 3 níveis e UI glassmorphism com Framer Motion. Na linha de IA, desenvolvi um agente de observabilidade em <strong>Node.js + Express</strong> que ingere logs de automações Windows e responde perguntas operacionais via <strong>Groq LLaMA</strong>, e depois levei o mesmo projeto para o caminho oposto: um chat com o modelo rodando <strong>localmente por llama.cpp</strong>, com RAG sobre documentos indexados na própria máquina e nenhum dado saindo dela.
+  Hoje mantenho quatro sistemas com usuário de verdade do outro lado. Um ERP de gestão de obras para uma construtora, <strong>com contrato assinado</strong>, sobre Node.js e PostgreSQL, com trilha de auditoria gravada por trigger no banco. Um SaaS jurídico multi-tenant em <strong>Next.js 16, Prisma e PostgreSQL</strong>, com RBAC em 3 níveis e integração com a API DataJud do CNJ. Um chat de atendimento embutível por uma tag de script, com painel do operador e canal de WhatsApp. E um app de finanças em <strong>NestJS e Angular 17</strong>, instalável como PWA, com login por passkey.
+</p>
+<p>
+  Na linha de IA, desenvolvi um agente de observabilidade em <strong>Node.js + Express</strong> que ingere logs de automações Windows e responde perguntas operacionais via <strong>Groq LLaMA</strong>, e depois levei o mesmo projeto para o caminho oposto: um chat com o modelo rodando <strong>localmente por llama.cpp</strong>, com RAG sobre documentos indexados na própria máquina e nenhum dado saindo dela.
+</p>
+<p>
+  Também administro a infraestrutura onde quase tudo isso roda: um <strong>servidor Debian próprio</strong>, com cada aplicação numa unit systemd endurecida, PostgreSQL local, exposição por Cloudflare Tunnel sem abrir porta no roteador e backup automatizado. Deploy é por script que valida o resultado antes de dar a publicação por concluída.
 </p>
 <p>
   No ambiente corporativo, implementei infraestrutura de automação em <strong>PowerShell e VBScript</strong> integrada ao ERP Protheus (TOTVS), com fila de execução via Mutex global, refresh de Power Query via Excel COM e upload automático no Google Drive via API.
@@ -2076,7 +2095,9 @@
           <div class="skill-tags">
             <span class="skill-tag purple">Next.js 16</span>
             <span class="skill-tag purple">React</span>
+            <span class="skill-tag red">Angular 17</span>
             <span class="skill-tag purple">Tailwind v4</span>
+            <span class="skill-tag red">NestJS</span>
             <span class="skill-tag orange">Spring Boot</span>
             <span class="skill-tag green">Express</span>
             <span class="skill-tag green">Prisma</span>
@@ -2093,10 +2114,14 @@
           <div class="skill-tags">
             <span class="skill-tag green">Git</span>
             <span class="skill-tag green">GitHub</span>
-            <span class="skill-tag green">Vercel</span>
-            <span class="skill-tag green">Fly.io</span>
             <span class="skill-tag green">Docker</span>
             <span class="skill-tag green">Linux</span>
+            <span class="skill-tag green">Debian</span>
+            <span class="skill-tag green">systemd</span>
+            <span class="skill-tag orange">Cloudflare Tunnel</span>
+            <span class="skill-tag orange">Caddy</span>
+            <span class="skill-tag green">Vercel</span>
+            <span class="skill-tag green">Fly.io</span>
             <span class="skill-tag">Vite</span>
             <span class="skill-tag">JWT</span>
             <span class="skill-tag">Postman</span>
@@ -2109,11 +2134,15 @@
           </div>
           <div class="skill-cat-title">IA & Automação</div>
           <div class="skill-tags">
+            <span class="skill-tag purple">Claude Code</span>
+            <span class="skill-tag purple">Groq API</span>
+            <span class="skill-tag purple">Gemini API</span>
+            <span class="skill-tag purple">llama.cpp</span>
+            <span class="skill-tag purple">RAG</span>
+            <span class="skill-tag purple">Agentes IA</span>
             <span class="skill-tag purple">Claude</span>
             <span class="skill-tag purple">ChatGPT</span>
             <span class="skill-tag purple">Gemini</span>
-            <span class="skill-tag purple">Groq</span>
-            <span class="skill-tag purple">Agentes IA</span>
             <span class="skill-tag">PowerShell</span>
             <span class="skill-tag">VBScript</span>
             <span class="skill-tag">Excel COM</span>
@@ -2142,7 +2171,6 @@
             <span style="font-size:0.65rem;font-weight:700;background:rgba(16,185,129,0.12);color:#34d399;border:1px solid rgba(16,185,129,0.25);padding:2px 7px;border-radius:20px;letter-spacing:0.05em">LEARNING</span>
           </div>
           <div class="skill-tags">
-            <span class="skill-tag green">Angular</span>
             <span class="skill-tag green">AWS</span>
             <span class="skill-tag green">LangChain</span>
             <span class="skill-tag green">Kubernetes</span>

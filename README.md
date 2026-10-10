@@ -21,7 +21,7 @@ Portfólio pessoal single-file (HTML5/CSS3/JavaScript puro, sem build tools), co
 
 Desenvolvedor Full Stack focado em **sistemas SaaS, agentes de IA e automação ETL**. Atualmente **Analista de Suporte Técnico na A²O Sistemas Gerenciais** (Aparecida de Goiânia/GO), atuando no atendimento, diagnóstico e resolução de chamados de sistemas gerenciais. Anteriormente Analista B2B na **Probel/Mercosul**, onde implementei 8+ rotinas de automação que reduziram 40% do retrabalho operacional e economizavam ~15h/semana do time.
 
-- 📍 Goiânia/GO — 24 anos
+- 📍 Goiânia/GO — 25 anos
 - 🎓 Graduando em **Análise e Desenvolvimento de Sistemas** — UNIGOIÁS (2024–2027)
 - 📧 matheustrajano.dev@gmail.com
 - 🐙 GitHub: [@MathTrajan](https://github.com/MathTrajan)
