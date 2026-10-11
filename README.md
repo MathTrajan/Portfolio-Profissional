@@ -49,7 +49,7 @@ Desenvolvedor Full Stack focado em **sistemas SaaS, agentes de IA e automação 
 `Debian` `systemd` `Cloudflare Tunnel` `Caddy` `Docker` `Fly.io` `Vercel` `Git/GitHub` `restic` `Google Drive API (OAuth)` `Groq API` `llama.cpp`
 
 ### Automação
-`PowerShell` `VBScript` `Excel COM Interop` `Windows Task Scheduler` `Mutex global`
+`PowerShell` `VBScript` `Windows Task Scheduler` `Mutex global`
 
 ### Proficiência (autoavaliação)
 | Tecnologia | Nível |
@@ -100,7 +100,7 @@ Desenvolvedor Full Stack focado em **sistemas SaaS, agentes de IA e automação 
 | **Protótipo — Gestão de Obras** | React, Vite, Express, SQLite, Docker | Validação que precedeu o sistema da WR · 🔒 código privado |
 | **GestFin — Finanças Domésticas** | Angular 17, Node.js, Express, PostgreSQL, PL/pgSQL | Acadêmico · [Repositório](https://github.com/MathTrajan/GestFin-Projeto-ADS) |
 | **Reverse Shell em Java (TCP)** | Java, Socket TCP | Segurança, ambiente controlado · [Repositório](https://github.com/MathTrajan/Estudo-Seguranca-Reverse-Shell) |
-| **Automação de Fluxos Operacionais** | PowerShell, VBScript, SQL Server, Excel COM, Google Drive API | Corporativo — consultas automatizadas no banco do Protheus, com planilha disponibilizada sozinha · 8+ rotinas |
+| **Automação de Fluxos Operacionais** | PowerShell, VBScript, SQL Server, Google Drive API | Corporativo — consultas automatizadas no banco do Protheus, com planilha disponibilizada sozinha · 8+ rotinas |
 | **Dashboard Estratégico Power BI** | Power BI, DAX, Power Query, SQL Server | Corporativo — KPIs gerenciais |
 | **Análise Top 100 Amazon Books** | Python, Pandas, Streamlit | Análise exploratória + dashboard |
 | **E-commerce Pró Colchões** | HTML, CSS, JS | Landing/loja institucional |

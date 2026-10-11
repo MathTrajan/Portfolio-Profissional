@@ -142,7 +142,7 @@ PROJETOS = [
     ]),
     ("Automação de Fluxos Operacionais.svg", "#2dd4bf", [
         ("PowerShell", "powershell"), ("SQL Server", "microsoftsqlserver"),
-        ("Excel COM", "microsoftexcel"), ("Google Drive API", "googledrive"),
+        ("Google Drive API", "googledrive"),
     ]),
     ("Análise Top 100 Amazon Books.svg", "#a78bfa", [
         ("Python", "python"), ("Pandas", "pandas"), ("Streamlit", "streamlit"),
