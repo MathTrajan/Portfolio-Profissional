@@ -72,7 +72,7 @@ Desenvolvedor Full Stack focado em **sistemas SaaS, agentes de IA e automação 
 - Suporte aos usuários e documentação de soluções recorrentes
 
 ### Analista B2B — Probel / Mercosul *(Jul 2024 — Jun 2026)*
-- 8+ rotinas de automação em produção (PowerShell + Excel COM + Google Drive API)
+- 8+ rotinas automatizando consultas no banco do ERP Protheus, em produção
 - 40% de redução no retrabalho operacional · ~15h/semana economizadas
 - Integração com ERP Protheus (TOTVS) via SQL Server
 - Dashboards estratégicos em Power BI
@@ -100,7 +100,7 @@ Desenvolvedor Full Stack focado em **sistemas SaaS, agentes de IA e automação 
 | **Protótipo — Gestão de Obras** | React, Vite, Express, SQLite, Docker | Validação que precedeu o sistema da WR · 🔒 código privado |
 | **GestFin — Finanças Domésticas** | Angular 17, Node.js, Express, PostgreSQL, PL/pgSQL | Acadêmico · [Repositório](https://github.com/MathTrajan/GestFin-Projeto-ADS) |
 | **Reverse Shell em Java (TCP)** | Java, Socket TCP | Segurança, ambiente controlado · [Repositório](https://github.com/MathTrajan/Estudo-Seguranca-Reverse-Shell) |
-| **Automação de Fluxos Operacionais** | PowerShell, VBScript, Excel COM, Google Drive API, Protheus | Corporativo — 8+ rotinas em produção |
+| **Automação de Fluxos Operacionais** | PowerShell, VBScript, SQL Server, Excel COM, Google Drive API | Corporativo — consultas automatizadas no banco do Protheus · 8+ rotinas em produção |
 | **Dashboard Estratégico Power BI** | Power BI, DAX, Power Query, SQL Server | Corporativo — KPIs gerenciais |
 | **Análise Top 100 Amazon Books** | Python, Pandas, Streamlit | Análise exploratória + dashboard |
 | **E-commerce Pró Colchões** | HTML, CSS, JS | Landing/loja institucional |

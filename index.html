@@ -2024,7 +2024,7 @@
   Também administro a infraestrutura onde quase tudo isso roda: um <strong>servidor Debian próprio</strong>, com cada aplicação numa unit systemd endurecida, PostgreSQL local, exposição por Cloudflare Tunnel sem abrir porta no roteador e backup automatizado. Deploy é por script que valida o resultado antes de dar a publicação por concluída.
 </p>
 <p>
-  No ambiente corporativo, implementei infraestrutura de automação em <strong>PowerShell e VBScript</strong> integrada ao ERP Protheus (TOTVS), com fila de execução via Mutex global, refresh de Power Query via Excel COM e upload automático no Google Drive via API.
+  No ambiente corporativo, automatizei consultas no banco de dados do <strong>ERP Protheus (TOTVS)</strong>: levantamentos recorrentes que eram feitos à mão passaram a rodar sozinhos, em rotinas <strong>PowerShell e VBScript</strong>.
 </p>
 
           <div class="about-highlights">
@@ -2551,7 +2551,7 @@
             <div class="project-type">Automação & API</div>
             <div class="project-title">Automação de Fluxos Operacionais</div>
             <p class="project-desc">
-              Infraestrutura de automação em PowerShell + VBScript para orquestrar ETL no ERP Protheus (TOTVS): refresh de Power Query via Excel COM, upload automático no Google Drive via PATCH API e fila de execução com Mutex global para evitar conflitos concorrentes.
+              Rotinas que automatizam consultas no banco de dados do ERP Protheus (TOTVS). Levantamentos recorrentes, antes feitos à mão a cada vez, passaram a rodar sozinhos em PowerShell e VBScript, sobre SQL Server. 8+ rotinas em produção.
             </p>
             <div class="project-tech">
               <span class="tech-pill">PowerShell</span>
