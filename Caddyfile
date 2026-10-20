@@ -34,6 +34,27 @@
 	@www host www.trajano.tech
 	redir @www https://trajano.tech{uri} 308
 
+	# ⚠️ A landing de captacao (~/Dev/Landing-Servicos) e servida em
+	# /sistemas pelo MESMO Caddy, de proposito: assim ela nao precisa de
+	# CNAME proprio, e o apiToken do cert.pem do tunel so enxerga outra
+	# zona -- hostname novo em trajano.tech exigiria registro criado a
+	# mao no painel.
+	#
+	# Mora neste arquivo porque o Caddy le UM Caddyfile e o
+	# deploy-portfolio.sh o sobrescreve: um bloco em /etc/caddy/conf.d seria
+	# apagado no proximo deploy do portfolio. Quem publica a landing e
+	# ~/Dev/Sentinel/scripts/deploy-landing.sh, que mexe so em /opt/landing.
+	#
+	# Sem a barra final os caminhos relativos da landing (vendor/, favicon)
+	# resolveriam na RAIZ e cairiam no portfolio, dando 404 calado.
+	redir /sistemas /sistemas/ 308
+	handle_path /sistemas/* {
+		root * /opt/landing
+		encode zstd gzip
+		file_server
+		header Cache-Control "public, max-age=0, must-revalidate"
+	}
+
 	root * /opt/portfolio
 	encode zstd gzip
 	file_server
