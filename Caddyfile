@@ -49,6 +49,13 @@
 	# resolveriam na RAIZ e cairiam no portfolio, dando 404 calado.
 	redir /sistemas /sistemas/ 308
 	handle_path /sistemas/* {
+		# O formulario da landing. `handle_path` aninhado tira o /api, entao
+		# /sistemas/api/contato chega no servico como /contato.
+		# Precisa vir ANTES do file_server: a primeira diretiva que casa ganha.
+		handle_path /api/* {
+			reverse_proxy 127.0.0.1:3810
+		}
+
 		root * /opt/landing
 		encode zstd gzip
 		file_server

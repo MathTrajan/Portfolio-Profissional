@@ -3454,34 +3454,51 @@
     const heroStats = document.querySelector('.hero-stats');
     if (heroStats) heroObserver.observe(heroStats);
 
-    // ---- Form submit ----
-// ---- Form submit (Formspree API) ----
+    // ---- Envio do formulario de contato ----
+    // Sai do Formspree (terceiro, 50 envios/mes no gratuito) e passa a usar a
+    // mesma API da landing, que roda no proprio servidor: /sistemas/api/contato.
+    //
+    // ⚠️ A API GRAVA o contato em disco antes de tentar o email, entao ela
+    // responde 200 mesmo se o envio falhar. Isso e proposital: a mensagem nao
+    // se perde, e pedir para a pessoa reenviar so duplicaria o registro.
+    //
+    // ⚠️ Mesma origem (trajano.tech), entao nao ha CORS envolvido. Mudar a
+    // landing de endereco quebra este formulario tambem.
     function submitForm(event) {
-      event.preventDefault(); 
-      
+      event.preventDefault();
+
       var form = document.getElementById("contactForm");
       var btn = document.getElementById("btnSubmit");
       var successMsg = document.getElementById("formSuccess");
+      var rotuloBtn = btn.innerHTML;
 
       btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
       btn.disabled = true;
 
-      fetch("https://formspree.io/f/xvzwlwjy", {
+      var dados = Object.fromEntries(new FormData(event.target).entries());
+      dados.origem = location.pathname + location.search;
+
+      fetch("/sistemas/api/contato", {
         method: "POST",
-        body: new FormData(event.target),
-        headers: { 'Accept': 'application/json' }
-      }).then(function(response) {
-        if (response.ok) {
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify(dados)
+      }).then(function (resposta) {
+        if (resposta.ok) {
           form.style.display = "none";
           successMsg.style.display = "block";
-        } else {
-          alert("Erro ao enviar. Verifique os dados e tente novamente.");
-          btn.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar Mensagem';
-          btn.disabled = false;
+          return;
         }
-      }).catch(function(error) {
-        alert("Erro de conexão. Tente novamente mais tarde.");
-        btn.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar Mensagem';
+        return resposta.json().catch(function () { return {}; }).then(function (corpo) {
+          var quais = (corpo.campos || []).join(", ");
+          alert(quais
+            ? "Confira estes campos antes de enviar: " + quais + "."
+            : "Nao foi possivel enviar. Tente de novo em instantes.");
+          btn.innerHTML = rotuloBtn;
+          btn.disabled = false;
+        });
+      }).catch(function () {
+        alert("Falha de conexao. Se preferir, chame no WhatsApp pelo botao ao lado.");
+        btn.innerHTML = rotuloBtn;
         btn.disabled = false;
       });
     }
